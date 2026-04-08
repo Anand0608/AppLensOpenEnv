@@ -1,0 +1,15 @@
+name: app_lens_openenv
+version: 0.1.0
+description: OpenEnv-compatible environment for application assessment and modernization analysis.
+entrypoint: env.py:AppLensOpenEnv
+actions:
+  - detect_language
+  - calculate_loc
+  - parse_dependencies
+  - compute_complexity
+  - security_scan
+  - recommend_modernization
+  - generate_report
+observation_model: models.Observation
+action_model: models.Action
+reward_model: models.Reward

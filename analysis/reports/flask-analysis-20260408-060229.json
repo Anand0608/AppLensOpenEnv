@@ -1,0 +1,113 @@
+{
+  "generated_at_utc": "2026-04-08T06:02:29.910938+00:00",
+  "repo_url": "https://github.com/pallets/flask.git",
+  "app_id": "flask",
+  "steps": 7,
+  "max_steps": 12,
+  "required_actions": [
+    "detect_language",
+    "calculate_loc",
+    "parse_dependencies",
+    "compute_complexity",
+    "security_scan",
+    "recommend_modernization",
+    "generate_report"
+  ],
+  "completed_actions": [
+    "detect_language",
+    "calculate_loc",
+    "parse_dependencies",
+    "compute_complexity",
+    "security_scan",
+    "recommend_modernization",
+    "generate_report"
+  ],
+  "reward_total": 1.2503,
+  "results": {
+    "detect_language": {
+      "language": "python"
+    },
+    "calculate_loc": {
+      "total_loc": 14100,
+      "file_count": 83
+    },
+    "parse_dependencies": {
+      "dependencies": [
+        "amqp",
+        "async-timeout",
+        "billiard",
+        "blinker",
+        "celery",
+        "click",
+        "click-didyoumean",
+        "click-plugins",
+        "click-repl",
+        "flask",
+        "itsdangerous",
+        "jinja2",
+        "kombu",
+        "markupsafe",
+        "prompt-toolkit",
+        "pytz",
+        "redis",
+        "six",
+        "vine",
+        "wcwidth",
+        "werkzeug"
+      ],
+      "count": 21
+    },
+    "compute_complexity": {
+      "score": 100,
+      "level": "high",
+      "inputs": {
+        "total_loc": 14100,
+        "dependency_count": 21,
+        "legacy": false
+      }
+    },
+    "security_scan": {
+      "vulnerability_count": 2,
+      "critical_count": 0,
+      "findings": [
+        {
+          "dependency": "flask",
+          "severity": "medium",
+          "cve": "CVE-2023-30861",
+          "note": "Session cookie may be permanently set if server errors occur"
+        },
+        {
+          "dependency": "jinja2",
+          "severity": "medium",
+          "cve": "CVE-2024-22195",
+          "note": "Cross-site scripting via xmlattr filter"
+        }
+      ]
+    },
+    "recommend_modernization": {
+      "priority": "medium",
+      "target_stack": "Python 3.11 + FastAPI",
+      "effort_weeks": 10,
+      "recommendations": [
+        "Refactor into bounded modules before platform migration",
+        "Upgrade vulnerable dependencies and enable SCA checks",
+        "Adopt CI/CD with automated tests and static analysis"
+      ]
+    },
+    "generate_report": {
+      "report": {
+        "app_name": "flask",
+        "language": "python",
+        "total_loc": 14100,
+        "dependency_count": 21,
+        "complexity_level": "high",
+        "vulnerability_count": 2,
+        "modernization_priority": "medium",
+        "summary": "flask in python has 14100 LOC, 21 dependencies, complexity=high, vulnerabilities=2."
+      }
+    }
+  },
+  "data_confidence": 1.0,
+  "fetch_reward": 0.25,
+  "mode": "fixed_sequence"
+}

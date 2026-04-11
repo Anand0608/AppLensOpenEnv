@@ -1,0 +1,47 @@
+name: app_lens_openenv
+version: 0.1.0
+description: OpenEnv-compatible environment for application assessment and modernization analysis.
+entrypoint: env.py:AppLensOpenEnv
+actions:
+  - detect_language
+  - calculate_loc
+  - parse_dependencies
+  - compute_complexity
+  - security_scan
+  - recommend_modernization
+  - generate_report
+observation_model: models.Observation
+action_model: models.Action
+reward_model: models.Reward
+tasks:
+  - name: easy
+    description: >
+      Analyze a simple Python framework (pallets/itsdangerous).
+      Required actions: detect_language, calculate_loc.
+    difficulty: easy
+    required_actions:
+      - detect_language
+      - calculate_loc
+  - name: medium
+    description: >
+      Analyze a mid-sized CLI library (pallets/click).
+      Required actions: detect_language, calculate_loc, parse_dependencies, compute_complexity.
+    difficulty: medium
+    required_actions:
+      - detect_language
+      - calculate_loc
+      - parse_dependencies
+      - compute_complexity
+  - name: hard
+    description: >
+      Full assessment of the Flask web framework (pallets/flask).
+      All 7 pipeline actions required, including security scanning and modernization recommendations.
+    difficulty: hard
+    required_actions:
+      - detect_language
+      - calculate_loc
+      - parse_dependencies
+      - compute_complexity
+      - security_scan
+      - recommend_modernization
+      - generate_report
